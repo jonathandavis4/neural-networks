@@ -8,9 +8,6 @@ class Neuron:
         self.inputs = []
         self.outputs = []
 
-    def clear_inputs(self):
-        self.inputs = []
-
     def set_input(self, input_vector):
         self.inputs = input_vector
 
