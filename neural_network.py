@@ -1,10 +1,15 @@
 from decimal import Decimal
 from itertools import pairwise
+from random import randint
 
 
 class Neuron:
     def __init__(self, neuron_id):
         self.id = neuron_id
+        self.weights = []
+        for i in range(50):
+            self.weights.append(randint(-5, 5))
+        self.bias = randint(-5, 5)
         self.inputs = []
         self.outputs = []
 
@@ -12,7 +17,11 @@ class Neuron:
         self.inputs = input_vector
 
     def get_output(self):
-        output = sum(self.inputs)
+        activation = sum([i * v for i, v in zip(self.inputs, self.weights)]) + self.bias
+        if activation >= 0:
+            output = 1
+        else:
+            output = 0
         print(f'    Neuron {self.id}: {output}')
         return output
 
@@ -71,5 +80,5 @@ class NeuralNetwork:
         for layer in self.layers:
             layer.run()
 
-neural_network = NeuralNetwork([5, 2, 5, 1])
-neural_network.run([1, 2, 3])
+neural_network = NeuralNetwork([5, 5, 1])
+neural_network.run([1])
