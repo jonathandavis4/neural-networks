@@ -1,0 +1,8 @@
+0 - Europe
+1 - Asia
+2 - North America
+3 - South America
+4 - Africa
+5 - Asia
+6 - Australasia
+7 - Antarctica
